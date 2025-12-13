@@ -128,7 +128,32 @@
           </div>
         </div>
 
-        <div class="hidden md:block"></div> <!-- Spacer -->
+        <!-- Mobile menu button -->
+        <div class="-mr-2 flex md:hidden">
+          <button type="button" id="mobile-menu-btn"
+            class="inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 focus:outline-none transition-colors">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu"
+      class="hidden md:hidden mac-glass border-t border-white/5 absolute w-full left-0 top-20 shadow-2xl backdrop-blur-3xl transition-all duration-300">
+      <div class="px-4 pt-4 pb-6 space-y-2">
+        <a href="index.html"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 hover:pl-6 transition-all"
+          onclick="closeMenu()">Home</a>
+        <a href="/tool1"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 hover:pl-6 transition-all"
+          onclick="closeMenu()">Items Tool</a>
+        <a href="/tool2"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 hover:pl-6 transition-all"
+          onclick="closeMenu()">RT Converter</a>
+        <a href="/tool3"
+          class="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 hover:pl-6 transition-all"
+          onclick="closeMenu()">Proton Hash</a>
       </div>
     </div>
   </nav>
@@ -174,17 +199,5 @@
       <p>&copy; 2025 NovaStore GTPS. All rights reserved.</p>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    lucide.createIcons();
-    AOS.init({ duration: 800, offset: 50 });
-  </script>
-
-  <!-- Original Tool Logic -->
-  <script src="dist/js/protonhash.js"></script>
-
-</body>
 
 </html>

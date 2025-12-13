@@ -166,6 +166,51 @@
       backdrop-filter: blur(5px);
     }
   </style>
+
+  <script>
+    // Mobile Menu Logic (Same as index.html)
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          const isHidden = menu.classList.contains('hidden');
+          if (isHidden) {
+            menu.classList.remove('hidden');
+            setTimeout(() => {
+              menu.style.opacity = '1';
+              menu.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            menu.style.opacity = '0';
+            menu.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+              menu.classList.add('hidden');
+            }, 300);
+          }
+        });
+      }
+    });
+
+    function closeMenu() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu) menu.classList.add('hidden');
+    }
+
+    // Navbar dynamic blur
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+
+      if (window.scrollY > 20) {
+        navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+      }
+
+      else {
+        navbar.style.background = 'rgba(5, 5, 5, 0.6)';
+      }
+    });
+  </script>
 </head>
 
 <body class="antialiased font-sans selection:bg-white/30 selection:text-white">
