@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proton Hash - NovaStore GTPS</title>
+  <meta name="description" content="Generate Proton Hash for Growtopia files.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            background: '#030303',
+            surface: '#0A0A0A',
+          },
+          animation: {
+            'float-dynamic': 'floatDynamic 6s ease-in-out infinite',
+            'float-fast': 'floatDynamic 4s ease-in-out infinite reverse',
+            'float-slow': 'floatDynamic 8s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'shimmer': 'shimmer 2s linear infinite',
+          },
+          keyframes: {
+            floatDynamic: {
+              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+              '33%': { transform: 'translateY(-10px) rotate(1deg)' },
+              '66%': { transform: 'translateY(5px) rotate(-1deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.5' },
+              '50%': { opacity: '0.2' },
+            },
+            shimmer: {
+              '0%': { transform: 'translateX(-100%)' },
+              '100%': { transform: 'translateX(100%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #030303;
+      color: #e2e8f0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 25%);
+      background-attachment: fixed;
+    }
+
+    /* Ultimate Glass Card */
+    .mac-card {
+      background: rgba(18, 18, 18, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+    }
+
+    /* Navbar & Glass Elements */
+    .mac-glass {
+      background: rgba(5, 5, 5, 0.8);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+
+<body class="antialiased font-sans selection:bg-white/30 selection:text-white">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 transition-all duration-300 mac-glass" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex-shrink-0 flex items-center gap-4 cursor-pointer group"
+          onclick="window.location.href='index.html'">
+          <div
+            class="w-10 h-10 rounded-xl bg-gradient-to-tr from-white to-gray-400 text-black flex items-center justify-center font-bold text-xl transition-all duration-500 group-hover:rotate-180 group-hover:scale-110 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            N
+          </div>
+          <span
+            class="font-heading font-bold text-2xl tracking-tight text-white group-hover:tracking-wide transition-all duration-300">NovaStore</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="flex items-center gap-1 p-1 rounded-full border border-white/5 bg-white/[0.03]">
+            <a href="index.html"
+              class="text-gray-400 hover:text-white hover:bg-white/10 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">Home</a>
+            <a href="index2.html"
+              class="text-gray-400 hover:text-white hover:bg-white/10 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">Items
+              Editor</a>
+            <a href="rtconverter.html"
+              class="text-gray-400 hover:text-white hover:bg-white/10 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">RTTEX</a>
+            <a href="protonhash.html"
+              class="text-white bg-white/10 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300">Proton</a>
+          </div>
+        </div>
+
+        <div class="hidden md:block"></div> <!-- Spacer -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="pt-32 pb-20 min-h-screen flex items-center justify-center">
+    <div class="max-w-3xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h1 class="text-4xl md:text-6xl font-heading font-black text-white mb-6">Proton Hash</h1>
+        <p class="text-gray-400 text-xl max-w-2xl mx-auto">Generate unique Proton hashes for your files securely.</p>
+      </div>
+
+      <div class="mac-card p-12 backdrop-blur-md" data-aos="fade-up" data-aos-delay="100">
+        <div class="space-y-8 text-center">
+
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Select File</h3>
+            <p class="text-gray-500 mb-6">Choose a file to generate its hash.</p>
+
+            <button id="hash_file"
+              class="group relative inline-flex items-center justify-center gap-3 bg-white text-black font-bold px-10 py-4 rounded-xl hover:bg-gray-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] w-full sm:w-auto">
+              <i data-lucide="file-up" class="w-5 h-5 group-hover:-translate-y-1 transition-transform"></i>
+              <span>Browse File</span>
+            </button>
+          </div>
+
+          <div class="border-t border-white/10 pt-8">
+            <p id="file_name" class="font-mono text-gray-400 text-sm mb-4">File Name: -</p>
+            <div class="bg-black/40 p-6 rounded-xl border border-white/5">
+              <h3 id="result_hash" class="text-2xl md:text-3xl font-mono text-emerald-400 break-all">Result Hash: -</h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black pt-12 pb-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 text-center text-gray-600 text-sm">
+      <p>&copy; 2025 NovaStore GTPS. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    lucide.createIcons();
+    AOS.init({ duration: 800, offset: 50 });
+  </script>
+
+  <!-- Original Tool Logic -->
+  <script src="dist/js/protonhash.js"></script>
+
+</body>
+
+</html>
